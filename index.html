@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>考试 </title>
+    <!--<link rel="stylesheet" href="demo.css" />-->
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: 1px solid #c0c0c0;
+    }
+
+    th,
+    td {
+        border: 1px solid #d0d0d0;
+        color: black;
+        padding: 10px;
+    }
+
+    th {
+        background-color: purple;
+        font: bold 12px "΢���ź�";
+        color: #fff;
+    }
+
+    td {
+        font: 12px "΢���ź�";
+    }
+
+    td a.get {
+        text-decoration: none;
+    }
+
+    a.del:hover {
+        text-decoration: underline;
+    }
+
+    tbody tr {
+        background-color: deeppink;
+    }
+
+    tbody tr:hover {
+        background-color: #fafafa;
+    }
+
+    table{
+        width: 410px;
+    }
+    .btnAdd {
+        width: 110px;
+        font-size: 20px;
+        display: inline-block;
+    }
+
+
+
+</style>
+<body>
+    <div class="wrap">
+        <div id="j_formAdd" class="form-add">
+            <div class="form-item">
+                <label class="lb" for="j_txtLesson">请输入姓名：</label>
+                <input class="txt" type="text" id="j_txtLesson">
+            </div>
+            <div class="form-item">
+                <label class="lb" for="j_youxiang">请输入邮箱：</label>
+                <input class="txt" type="text" id="j_youxiang" >
+            </div>
+            <div class="form-item">
+                <label class="lb" for="j_number">请输入手机：</label>
+                <input class="txt" type="text" id="j_number" >
+            </div>
+            <div class="form-item">
+                <label class="lb" for="j_address">请输入地址：</label>
+                <input class="txt" type="text" id="j_address" >
+            </div>
+            <div>
+                <input type="button" value="添加" id="j_btnAddData" class="btnAdd" />
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>邮箱</th>
+                    <th>手机</th>
+                    <th>地址</th>
+                </tr>
+            </thead>
+            <tbody id="j_tb">
+                <tr>
+                    <td>小黑</td>
+                    <td>小黑@.126.com</td>
+                    <td >19999009090</td>
+                    <td>北京</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var j_txtLesson=document.getElementById('j_txtLesson');
+        var j_youxiang=document.getElementById('j_youxiang');
+        var j_number=document.getElementById('j_number');
+        var j_address=document.getElementById('j_address');
+        var j_tb=document.getElementById("j_tb");
+        var trs = j_tb.getElementsByTagName('tr');
+
+        j_btnAddData.onclick=function(){
+
+            tr = document.createElement('tr');
+            j_tb.appendChild(tr);
+            td = document.createElement('td');
+            tr.appendChild(td);
+            td.innerText=j_txtLesson.value;
+
+            td1 = document.createElement('td');
+            tr.appendChild(td1);
+            td1.innerText=j_youxiang.value;
+
+            td2 = document.createElement('td');
+            tr.appendChild(td2);
+            td2.innerText=j_number.value;
+
+            td3 = document.createElement('td');
+            tr.appendChild(td3);
+            td3.innerText=j_address.value;
+
+            j_tb.onclick=function() {
+                for (var i = 0; i < trs.length; i++) {
+                    var tr = trs[i];
+                    if (i % 2 === 0) {
+
+                        tr.style.backgroundColor = 'red';
+                    } else {
+
+                        tr.style.backgroundColor = 'green';
+                    }
+                }
+            }
+        }
+
+
+        j_tb.onclick=function() {
+            for (var i = 0; i < trs.length; i++) {
+                var tr = trs[i];
+                if (i % 2 === 0) {
+
+                    tr.style.backgroundColor = 'red';
+                } else {
+
+                    tr.style.backgroundColor = 'green';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
